@@ -85,10 +85,10 @@ public class Algebra {
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
 		int sqrt = 0;
-		while ((times(sqrt, sqrt)) < x) {
+		while ((times(sqrt, sqrt)) <= x) {
 
 			sqrt ++;
 		}
-		return sqrt;
+		return sqrt -1;
 	}	  	  
 }
