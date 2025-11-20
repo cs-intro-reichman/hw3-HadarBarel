@@ -27,8 +27,6 @@ public class LoanCalc {
 		System.out.println((int) bisectionSolver(loan, rate, n, epsilon));
 		System.out.println("number of iterations: " + iterationCounter);
 		
-
-		//System.out.println(endBalance(100000, 5 , 10, 10000));
 		
 		
 	}

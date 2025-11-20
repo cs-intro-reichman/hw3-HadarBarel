@@ -12,7 +12,7 @@ public class Algebra {
  		System.out.println(times(3,4));  // 3 * 4
    		System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
    		System.out.println(pow(5,3));      // 5^3
-   		System.out.println(pow(3,5));      // 3^5
+   		System.out.println(pow(-2,3));      // 3^5
    		System.out.println(div(12,3));   // 12 / 3    
    		System.out.println(div(5,5));    // 5 / 5  
    		System.out.println(div(25,7));   // 25 / 7
@@ -21,34 +21,71 @@ public class Algebra {
    		System.out.println(sqrt(36));
 		System.out.println(sqrt(263169));
    		System.out.println(sqrt(76123));
+
+    
+   		System.out.println(div(-5,5));    // 5 / 5  
+   		System.out.println(div(5,5));    // 5 / 5  
+   		System.out.println(div(5,-5));    // 5 / 5  
+   		System.out.println(div(-5,-5));    // 5 / 5  
+
+
+
 	}  
+
 
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
 
-		for (int i = 0; i < x2; i ++){
+		if (x2 >= 0){
+			for (int i = 0; i < x2; i ++){
 			x1 ++;
+			}
 		}
-
+		else {
+			for (int i = x2; i < 0; i ++){
+			x1 --;
+			}
+		}
 		return x1;
 	}
-
+		// -5 2
+		// 5 2
+		// -5 -2
+		//  5 -2
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 
-		for (int i = 0; i < x2; i ++){
+		if (x2 >= 0){
+			for (int i = 0; i < x2; i ++){
 			x1 --;
+			}
 		}
+		else {
+			for (int i = x2; i < 0; i ++){
+			x1 ++;
+			}
+		}
+		
 		return x1;
 	}
 
 	// Returns x1 * x2
+	// 2 5
+	// -2 -5
+	// -2 5
+	// 2 -5
 	public static int times(int x1, int x2) {
 
+		int newx1 = Math.abs(x1);
+		int newx2 = Math.abs(x2);
 		int kefel = 0;
-		for (int i = 0; i < x2; i ++){
-			kefel = plus(kefel, x1);
+		for (int i = 0; i < newx2; i ++){
+			kefel = plus(kefel, newx1);
 		}
+		if (x1 <= 0 && x2 >=0 || x1 >= 0 && x2 <=0){
+			kefel = - kefel;
+		}
+		
 		return kefel;
 	}
 
@@ -66,9 +103,14 @@ public class Algebra {
 	public static int div(int x1, int x2) {
 
 		int counter = 0;
-		while (x1 >= x2){
-			x1 = minus(x1, x2);
+		int newx1 = Math.abs(x1);
+		int newx2 = Math.abs(x2);
+		while (newx1 >= newx2){
+			newx1 = minus(newx1, newx2);
 			counter ++;
+		}
+		if (x1 <= 0 && x2 >=0 || x1 >= 0 && x2 <=0){
+			counter = - counter;
 		}
 		return counter;
 	}

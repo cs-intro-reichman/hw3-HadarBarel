@@ -92,7 +92,7 @@ public class Anagram {
 
 		while (result.length() < str.length()){
 
-			int rand = (int) ((Math.random()*str.length()));
+			int rand = (int) ((Math.random() * str.length()));
 			if (strarr[rand] != 0){
 				result += strarr[rand];
 				strarr[rand] = 0;
